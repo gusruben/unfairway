@@ -11,6 +11,7 @@ UNFAIRWAY is a golf game about losing. It's a two-player game that runs entirely
 ## Controls
 
 **Player 1**: `W` to move; `S` to use ability; `A` and `D` to select card
+
 **Player 2**: `🞁` to move; `🞃` to use ability; `🞀` and `🞂` to select card (arrow keys)
 
 To move, hold down the movement key. An arrow will start rotating around your ball. Release the movement key to 'lock in' the direction. The arrow will stop rotating, and start moving in and out, closer to and farther from your ball. Tap the movement key when the arrow is farthest from your ball to get the most momentum!
