@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cd68o21qlnl0j"
+path="res://.godot/imported/Extra (no Hydro).wav-1e1d9912312a6ebc6380eefb0bf2035e.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Extra (no Hydro).wav"
+dest_files=["res://.godot/imported/Extra (no Hydro).wav-1e1d9912312a6ebc6380eefb0bf2035e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

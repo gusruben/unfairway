@@ -1,0 +1,347 @@
+[gd_scene load_steps=53 format=3 uid="uid://d4b2o23wk1h6l"]
+
+[ext_resource type="SpriteFrames" uid="uid://cn1jsl1fjr07j" path="res://Assets/Sprites/background-animation.tres" id="1_0m63b"]
+[ext_resource type="PackedScene" uid="uid://cogb36exvjlcu" path="res://Scenes/title.tscn" id="1_u1a3f"]
+[ext_resource type="PackedScene" uid="uid://babuel215jd8i" path="res://Scenes/pick-screen.tscn" id="3_bksyb"]
+[ext_resource type="AudioStream" uid="uid://c6whdqdifd3ts" path="res://Assets/Sounds/Fast Updated.ogg" id="4_4rpv3"]
+[ext_resource type="PackedScene" uid="uid://bxxlq4j7p101l" path="res://Scenes/end-screen.tscn" id="4_i6g32"]
+[ext_resource type="PackedScene" uid="uid://d2s4s04i1s4mg" path="res://Scenes/Game-ui.tscn" id="4_wowpa"]
+[ext_resource type="AudioStream" uid="uid://bvff71qfei3av" path="res://Assets/Sounds/golf-hit.wav" id="7_1l0tm"]
+[ext_resource type="Script" uid="uid://cy3iborh3ms3a" path="res://Scripts/music.gd" id="7_v158k"]
+[ext_resource type="AudioStream" uid="uid://d4j0wnumrowir" path="res://Assets/Sounds/ui-select.wav" id="9_ldgsr"]
+[ext_resource type="AudioStream" uid="uid://psytr42sy6ue" path="res://Assets/Sounds/card-select.wav" id="10_o5yvi"]
+[ext_resource type="Texture2D" uid="uid://ckv2gwq1guwcw" path="res://Assets/Sprites/empty.png" id="11_rku1e"]
+[ext_resource type="Texture2D" uid="uid://dlnttu6eglxnv" path="res://Assets/Sprites/wipe.png" id="12_rfjv2"]
+[ext_resource type="PackedScene" uid="uid://cnki378ylr8ln" path="res://Scenes/pause.tscn" id="13_rfjv2"]
+[ext_resource type="AudioStream" uid="uid://nrc0y3xp6m4k" path="res://Assets/Sounds/menu.wav" id="14_1phco"]
+[ext_resource type="AudioStream" uid="uid://de0iag8ygff0a" path="res://Assets/Sounds/map-switch.wav" id="15_nb51f"]
+[ext_resource type="AudioStream" uid="uid://uc00jddqchy5" path="res://Assets/Sounds/win-game.wav" id="16_nnt18"]
+[ext_resource type="AudioStream" uid="uid://dgaeolbtfdvlj" path="res://Assets/Sounds/dash.wav" id="17_ewbju"]
+[ext_resource type="AudioStream" uid="uid://3e6n4q38tnv7" path="res://Assets/Sounds/win-level.wav" id="18_85qyi"]
+[ext_resource type="AudioStream" uid="uid://jaf88ndbm4cp" path="res://Assets/Sounds/error.wav" id="19_7nbq1"]
+[ext_resource type="AudioStream" uid="uid://c1dc6joxuvsul" path="res://Assets/Sounds/hover.wav" id="19_iivbl"]
+[ext_resource type="AudioStream" uid="uid://cka6iqrdejnj6" path="res://Assets/Sounds/jump.wav" id="21_exi56"]
+[ext_resource type="AudioStream" uid="uid://bk62nhua73uxp" path="res://Assets/Sounds/slide.wav" id="22_7t8sx"]
+[ext_resource type="AudioStream" uid="uid://byftq2y38fr3d" path="res://Assets/Sounds/slide-reverse.wav" id="23_mg4q0"]
+[ext_resource type="AudioStream" uid="uid://cs2o8ecmkvr6t" path="res://Assets/Sounds/land.wav" id="24_vm72l"]
+[ext_resource type="AudioStream" uid="uid://by241741o281j" path="res://Assets/Sounds/wipe-out.wav" id="25_22asu"]
+
+[sub_resource type="Gradient" id="Gradient_1l0tm"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.0312092, 0.0258469, 0.0822153, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_v158k"]
+gradient = SubResource("Gradient_1l0tm")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ps378"]
+atlas = ExtResource("12_rfjv2")
+region = Rect2(0, 0, 640, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wkj73"]
+atlas = ExtResource("12_rfjv2")
+region = Rect2(640, 0, 640, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_34adv"]
+atlas = ExtResource("12_rfjv2")
+region = Rect2(1280, 0, 640, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8fpq2"]
+atlas = ExtResource("12_rfjv2")
+region = Rect2(1920, 0, 640, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yrftc"]
+atlas = ExtResource("12_rfjv2")
+region = Rect2(0, 320, 640, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v636t"]
+atlas = ExtResource("12_rfjv2")
+region = Rect2(640, 320, 640, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6uh5d"]
+atlas = ExtResource("12_rfjv2")
+region = Rect2(1280, 320, 640, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ugnon"]
+atlas = ExtResource("12_rfjv2")
+region = Rect2(1920, 320, 640, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mg2ew"]
+atlas = ExtResource("12_rfjv2")
+region = Rect2(0, 640, 640, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d16x5"]
+atlas = ExtResource("12_rfjv2")
+region = Rect2(640, 640, 640, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x4jox"]
+atlas = ExtResource("12_rfjv2")
+region = Rect2(1280, 640, 640, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_snpp8"]
+atlas = ExtResource("12_rfjv2")
+region = Rect2(1920, 640, 640, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y2o84"]
+atlas = ExtResource("12_rfjv2")
+region = Rect2(0, 960, 640, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_484xv"]
+atlas = ExtResource("12_rfjv2")
+region = Rect2(640, 960, 640, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ko6av"]
+atlas = ExtResource("12_rfjv2")
+region = Rect2(1280, 960, 640, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8xvvu"]
+atlas = ExtResource("12_rfjv2")
+region = Rect2(1920, 960, 640, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5mnvh"]
+atlas = ExtResource("12_rfjv2")
+region = Rect2(0, 1280, 640, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4iywc"]
+atlas = ExtResource("12_rfjv2")
+region = Rect2(640, 1280, 640, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gc12f"]
+atlas = ExtResource("12_rfjv2")
+region = Rect2(1280, 1280, 640, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mi30f"]
+atlas = ExtResource("12_rfjv2")
+region = Rect2(1920, 1280, 640, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cmmc2"]
+atlas = ExtResource("12_rfjv2")
+region = Rect2(0, 1600, 640, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_50aho"]
+atlas = ExtResource("12_rfjv2")
+region = Rect2(640, 1600, 640, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6h30j"]
+atlas = ExtResource("12_rfjv2")
+region = Rect2(1280, 1600, 640, 320)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kh8uo"]
+atlas = ExtResource("12_rfjv2")
+region = Rect2(1920, 1600, 640, 320)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1phco"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_rku1e")
+}],
+"loop": false,
+"name": &"empty",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ps378")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wkj73")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_34adv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8fpq2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yrftc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v636t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6uh5d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ugnon")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mg2ew")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d16x5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x4jox")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_snpp8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y2o84")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_484xv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ko6av")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8xvvu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5mnvh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4iywc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gc12f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mi30f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cmmc2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_50aho")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6h30j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kh8uo")
+}],
+"loop": false,
+"name": &"wipe",
+"speed": 30.0
+}]
+
+[node name="Game" type="Node2D"]
+
+[node name="bg" type="AnimatedSprite2D" parent="."]
+z_index = -210
+texture_filter = 1
+position = Vector2(-19, -29)
+scale = Vector2(4, 4)
+sprite_frames = ExtResource("1_0m63b")
+autoplay = "default"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(0, -20)
+zoom = Vector2(0.707, 0.707)
+
+[node name="Game-ui" parent="." instance=ExtResource("4_wowpa")]
+custom_minimum_size = Vector2(1280, 720)
+offset_left = -640.0
+offset_top = -380.0
+offset_right = 640.0
+offset_bottom = 340.0
+scale = Vector2(1.414, 1.414)
+pivot_offset = Vector2(640, 360)
+
+[node name="Overlay" type="Sprite2D" parent="."]
+process_mode = 3
+modulate = Color(1, 1, 1, 0)
+position = Vector2(2.50002, -0.999954)
+scale = Vector2(8.11328, 1210)
+texture = SubResource("GradientTexture1D_v158k")
+
+[node name="Card-ui" parent="." instance=ExtResource("3_bksyb")]
+anchors_preset = 15
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="End-screen" parent="." instance=ExtResource("4_i6g32")]
+visible = false
+
+[node name="Title" parent="." instance=ExtResource("1_u1a3f")]
+z_index = 380
+offset_left = -640.0
+offset_top = -380.0
+offset_right = 640.0
+offset_bottom = 340.0
+scale = Vector2(1.414, 1.414)
+pivot_offset = Vector2(640, 360)
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
+stream = ExtResource("4_4rpv3")
+autoplay = true
+script = ExtResource("7_v158k")
+
+[node name="Golf-Hit-Sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_1l0tm")
+max_polyphony = 6
+
+[node name="Ui-Select-Sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_ldgsr")
+
+[node name="Select-Card-Sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_o5yvi")
+max_polyphony = 2
+
+[node name="Wipe" type="AnimatedSprite2D" parent="."]
+z_index = 4096
+texture_filter = 1
+scale = Vector2(3.8, 3.8)
+sprite_frames = SubResource("SpriteFrames_1phco")
+animation = &"wipe"
+
+[node name="Pause" parent="." instance=ExtResource("13_rfjv2")]
+
+[node name="MenuSound" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
+stream = ExtResource("14_1phco")
+volume_db = -4.0
+
+[node name="MapSwitchSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("15_nb51f")
+volume_db = -4.0
+
+[node name="WinGameSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_nnt18")
+volume_db = -4.0
+
+[node name="DashSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("17_ewbju")
+volume_db = -4.0
+
+[node name="WinLevelSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("18_85qyi")
+volume_db = -4.0
+
+[node name="MenuErrorSound" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
+stream = ExtResource("19_7nbq1")
+volume_db = -4.0
+
+[node name="MenuHoverSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("19_iivbl")
+volume_db = -12.0
+
+[node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("21_exi56")
+volume_db = -4.0
+
+[node name="SlideSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("22_7t8sx")
+volume_db = -14.0
+pitch_scale = 0.2
+
+[node name="SlideReverseSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("23_mg4q0")
+volume_db = -14.0
+pitch_scale = 0.2
+
+[node name="LandSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("24_vm72l")
+volume_db = 16.0
+
+[node name="WipeOutSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("25_22asu")
+volume_db = -4.0
+
+[connection signal="finished" from="Music" to="Music" method="_on_finished"]

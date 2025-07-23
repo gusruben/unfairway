@@ -1,0 +1,84 @@
+[gd_scene load_steps=9 format=3 uid="uid://bxkmef2j3woq3"]
+
+[ext_resource type="Script" uid="uid://b2fg6fbai0kid" path="res://Scripts/golf-hole-area.gd" id="2_lke2q"]
+[ext_resource type="SpriteFrames" uid="uid://cule3opuiti73" path="res://Assets/Sprites/flag_animation.tres" id="3_k5gm3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k0ey4"]
+size = Vector2(9.06217, 4.00421)
+
+[sub_resource type="Gradient" id="Gradient_hh8e7"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_kgwia"]
+gradient = SubResource("Gradient_hh8e7")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qa2ar"]
+lifetime_randomness = 0.15
+particle_flag_rotate_y = true
+particle_flag_disable_z = true
+direction = Vector3(0, -0.5, 0)
+spread = 10.0
+initial_velocity_min = 150.0
+initial_velocity_max = 300.0
+radial_velocity_min = -2.23517e-05
+radial_velocity_max = -2.23517e-05
+gravity = Vector3(0, 120, 0)
+scale_min = 4.0
+scale_max = 8.0
+color_ramp = SubResource("GradientTexture1D_kgwia")
+turbulence_enabled = true
+turbulence_noise_strength = 3.15
+turbulence_noise_scale = 5.737
+turbulence_noise_speed = Vector3(0, 1.415, 0)
+turbulence_influence_min = 0.034
+turbulence_influence_max = 0.09
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ju3xf"]
+size = Vector2(3.97524, 9.87197)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_itolv"]
+size = Vector2(16.7313, 3.89252)
+
+[node name="Golf-hole" type="Node2D"]
+z_index = 100
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = ExtResource("3_k5gm3")
+animation = &"flag_animation"
+autoplay = "flag_animation"
+frame = 9
+frame_progress = 0.464172
+
+[node name="Area2D" type="Area2D" parent="AnimatedSprite2D"]
+collision_mask = 131072
+script = ExtResource("2_lke2q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Area2D"]
+position = Vector2(-7.48156, 17.5975)
+shape = SubResource("RectangleShape2D_k0ey4")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="AnimatedSprite2D/Area2D"]
+position = Vector2(-8, 18)
+emitting = false
+amount = 20
+lifetime = 2.0
+one_shot = true
+speed_scale = 5.0
+explosiveness = 1.0
+fixed_fps = 100
+process_material = SubResource("ParticleProcessMaterial_qa2ar")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="AnimatedSprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/StaticBody2D"]
+position = Vector2(-14.0003, 17.5809)
+shape = SubResource("RectangleShape2D_ju3xf")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="AnimatedSprite2D/StaticBody2D"]
+position = Vector2(-7.52266, 21.4468)
+shape = SubResource("RectangleShape2D_itolv")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="AnimatedSprite2D/StaticBody2D"]
+position = Vector2(-1.05374, 17.7028)
+shape = SubResource("RectangleShape2D_ju3xf")

@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://scvlvh1nlus4"]
+
+[ext_resource type="Texture2D" uid="uid://col8vyxfh70d" path="res://Assets/Sprites/trail.png" id="1_wwtso"]
+[ext_resource type="Script" uid="uid://cwo0k32uimplx" path="res://Scenes/Particles/BurstEffect.gd" id="2_wwtso"]
+
+[sub_resource type="Gradient" id="Gradient_iw2ci"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_wwtso"]
+gradient = SubResource("Gradient_iw2ci")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kdheq"]
+particle_flag_disable_z = true
+angle_min = 1.07288e-05
+angle_max = 1.07288e-05
+initial_velocity_min = 80.0
+initial_velocity_max = 150.0
+gravity = Vector3(0, 98, 0)
+damping_min = 50.0
+damping_max = 80.0
+scale_min = 0.8
+scale_max = 0.8
+color_ramp = SubResource("GradientTexture1D_wwtso")
+
+[node name="BallHit" type="GPUParticles2D"]
+emitting = false
+amount = 5
+texture = ExtResource("1_wwtso")
+lifetime = 0.6
+one_shot = true
+explosiveness = 0.9
+process_material = SubResource("ParticleProcessMaterial_kdheq")
+script = ExtResource("2_wwtso")
